@@ -41,7 +41,7 @@
             openSpeed = closeSpeed = opts.speed;
         }        
 
-        var $curr   = {};
+        var curr = {};
         
         this.find(".accordion-trigger")
         
@@ -61,15 +61,15 @@
                             onClose(lt, e);
                         });
                     }
-                })($curr.body, $curr.trig); 
+                })(curr.body, curr.trig); 
 
                 //  Open selected body
                 //
                 if($n.is(':hidden')) {
                     onBeforeOpen($t, e);
                     $n.slideDown(openSpeed, function() {
-                        $curr.body = $n;
-                        $curr.trig = $t;
+                        curr.body = $n;
+                        curr.trig = $t;
                         
                         onOpen($t, e);
                     });
