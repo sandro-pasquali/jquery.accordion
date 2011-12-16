@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jquery.accordion</title>
+	<style type="text/css">
+	
+	    /* All optional */
+	    
+        .accordion-selected {
+            background: #00ccaa;
+        }
+            
+        .accordion-hover {
+            background: #d6d6d6;
+        }
+            
+        .accordion-trigger {
+            cursor: pointer
+        }
+        
+        .accordion-body {
+        }
+        
+        .accordion-startopen {
+        }
+        
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.accordion.js"></script>
+	<script type="text/javascript">
+	    
+	    $(function() {
+            $("#accordion").accordion({
+                speed       : 200,
+                onOver      : function(trig, e) {
+                    trig.addClass('accordion-hover');
+                },
+                onOut       : function(trig, e) {
+                    trig.removeClass('accordion-hover');										
+                },
+                onOpen      : function(trig, e) {
+                    trig.addClass('accordion-selected');
+                    
+                    var authority = trig.attr("name");
+                },
+                onClose     : function(trig, e) {                    
+                    trig.removeClass('accordion-selected');
+                }
+            });
+        });
+        
+	</script>
+</head>
+<body>
+
+    <div id="accordion">
+        <div class="accordion-trigger">Birds</div>
+        <div class="accordion-body">
+            <ul>
+                <li>Dove</li>
+                <li>Robin</li>
+                <li>Sparrow</li>
+            </ul>
+        </div>
+        <div class="accordion-trigger">Cats</div>
+        <div class="accordion-body">
+            <ul>
+                <li>Black</li>
+                <li>Calico</li>
+                <li>White</li>
+            </ul>
+        </div>
+        <div class="accordion-trigger">Dogs</div>
+        <div class="accordion-body">
+            <ul>
+                <li>Labrador</li>
+                <li>Setter</li>
+                <li>Terrier</li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>
